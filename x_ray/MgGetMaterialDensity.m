@@ -13,6 +13,8 @@ switch material
         density = 1.205e-3;
     case "bone"
         density = 1.92;
+    case "brain"
+        density = 1.04;
     case "CaCl2"
         density = 2.15;
     case "teflon"
