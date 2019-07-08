@@ -1,0 +1,81 @@
+// config sample file for bone beam hardening correction
+
+//=============================================================================================================
+// If you want to run the matlab function from command line without opening matlab desktop,
+//  you can use the following command:
+// matlab -nosplash -nodesktop -r  "MgBoneBeamHardeningCorrection config_sample_bone_correction.jsonc;exit"
+//=============================================================================================================
+{
+    /***********************************************
+    * bone correction parameters
+    ************************************************/
+    // image value (attenuation) for water (or soft tissue)
+    "WaterRange": [0.0001, 0.0265],
+    // image value (attenuation) for bone
+    "BoneRange": [0.0265, 3],
+    // correction component.
+    // 'b' means 'bone', 'w' means 'water' (or soft tissue)
+    "CorrectionParameters": "0.05 * b*b + 0.04 * w*b",
+
+
+    /************************************************
+    * input and output directory and files
+    *************************************************/
+    "InputDir": "./img",
+    "OutputDir": "./img_bc",
+    // all the files in the input directory, use regular expression
+    "InputFiles": ".*img_.*.raw",
+    // output file name (prefix, replace)
+    "OutputFilePrefix": "",
+    // replace substring in input file name
+    "OutputFileReplace": [ "img_", "img_bc_" ],
+    // keep temporary files or not
+    "KeepTemporaryFiles": false,
+
+    /***************************************************
+    * image and geometry parameters
+    ****************************************************/
+
+    // image dimension (integer)
+    "ImageDimension": 512,
+
+    /* pixel size or image size, just use one of them */
+    // image pixel size [mm]
+    "PixelSize": 0.43,
+    // image size [mm]
+    //"ImageSize": 200,
+
+    // number of slices in each image file
+    "SliceCount": 1,
+
+    // number of detector elements
+    "DetectorElementCount": 1280,
+    // number of views for reconstruction
+    "Views": 1080,
+  
+    // the physical size of detector element size [mm]
+    "DetectorElementSize": 0.4,
+    // the position (coordinate) of detector center [mm]
+    "DetectorOffcenter": 0,
+  
+    // oversample sinogram by increasing the number of detector elements by the factor of number below
+    "OversampleSize":  3,
+
+    // source to isocenter distance [mm]
+    "SourceIsocenterDistance": 539,
+    // source to detector distance [mm]
+    "SourceDetectorDistance": 949,
+
+    /* reconstruction kernel, avaliable list:
+    *  1. "HammingFilter": t + (1-t)*cos(pi*k/ 2*kn), 1 for ramp kernel, 0 for consine kernel, others are     in-between
+    *  2. "QuadraticFilter": (for bone-plus kernel) tow parameters for t and h, three parameters for a, b,     c
+    *  3. "Polynomial": an*k^n + ... + a1*k + a0, (n <= 6)
+    *  4. "Hilbert": 1 or -1 (phase contrast, 1 or -1 for right or left direction)
+    *  5. "Hilbert_angle": temporary test of differential phase contrast along angle direction
+    */
+    "HammingFilter": 0
+    //"QuadraticFilter": [ 0.42, 0 ]
+    //"Polynomial": [ -15.9236, -2.1540, 3.1106, 2.3872, 1.0000 ]
+    //"Hilbert": 1,
+    //"Hilbert_angle": 1
+}
