@@ -11,6 +11,8 @@ switch material
         density = 0.95;
     case "air"
         density = 1.205e-3;
+    case "blood"
+        density = 1.06;
     case "bone"
         density = 1.92;
     case "brain"

@@ -56,7 +56,7 @@ N0_res = sum(N0.*sens, 2);
 if addNoise
     N_res = poissrnd(N_res);
 end
-N_res(N_res<0.01) = 0.01;
+N_res(N_res<0.1) = 0.1;
 
 % get sinogram
 sgm = log(N0_res ./ N_res);
