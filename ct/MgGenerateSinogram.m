@@ -30,6 +30,11 @@ muL = sum(muL, 3);
 % spectrum after object
 N = N0 .* exp(-muL);
 
+% add noise or not
+if addNoise
+    N = poissrnd(N);
+end
+
 % detector energy response
 if useEnergyResponse
     enres = MgGetEnergyResponseMatrix();
@@ -53,9 +58,9 @@ N_res = sum(N.*sens, 2);
 N0_res = sum(N0.*sens, 2);
 
 % add noise or not
-if addNoise
-    N_res = poissrnd(N_res);
-end
+% if addNoise
+%     N_res = poissrnd(N_res);
+% end
 N_res(N_res<0.1) = 0.1;
 
 % get sinogram
