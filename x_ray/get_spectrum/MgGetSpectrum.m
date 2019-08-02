@@ -1,5 +1,5 @@
 function N = MgGetSpectrum(kVp, energy, varargin)
-% function N = MgGetSpectrum(kVp, energy)
+% function N = MgGetSpectrum(kVp, energy, ...)
 % Get the spectrum for a certain kVp. Intrinsical Al 3mm and air 1m is applied.
 % kVp: kVp, from 50 to 140 kVp, 5 keV interval.
 % energy: array of energy (keV).
