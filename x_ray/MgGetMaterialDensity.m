@@ -17,14 +17,17 @@ switch material
         density = 1.92;
     case "brain"
         density = 1.04;
+    case "CaC2O4"
+        density = 2.12;
     case "CaCl2"
         density = 2.15;
     case "teflon"
         density = 2.2;
+    case "UricAcid"
+        density = 1.87;
     case "water"
         density = 1;
-    case "CaC2O4"
-        density = 2.12;
+   
         
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % element
