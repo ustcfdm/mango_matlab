@@ -1,0 +1,10 @@
+{
+    "MgDirRegExp":
+    {
+        "inputs":
+        [
+            {"name":"dir", "kind":"required", "type":["folder"], "purpose":"Foler"},
+            {"name":"regexp", "kind":"required", "type":["char"], "purpose":"Regular expression for file name"}
+        ]
+    }
+}
