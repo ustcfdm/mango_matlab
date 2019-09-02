@@ -71,7 +71,11 @@ elseif theme == "light"
     
     set(groot, 'DefaultTextFontName', 'Times New Roman');
     set(groot, 'DefaultAxesFontName', 'Times New Roman');
-    
+
+elseif theme == "transparent"
+    set(groot, 'DefaultFigureColor', 'none');
+    set(groot, 'DefaultFigureInvertHardcopy', 'off');
+    set(groot, 'DefaultAxesColor', 'none');
     
 elseif theme == "default"
     set(groot, 'DefaultAxesColor', 'remove');
