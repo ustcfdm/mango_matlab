@@ -27,5 +27,5 @@ for PanelIdx=[panelIdxBegin:panelIdxEnd]
     %this is a linear interpolation process in order not to change the
     %rightmost val
     Correction=((BoundaryRight+1:BoundaryRightMost)-BoundaryRightMost)/(BoundaryRightMost-BoundaryRight-1)*(-1)*(LeftVal-RightVal);
-    SinogramC(BoundaryRight+1:BoundaryRightMost,:)=SinogramC(BoundaryRight+1:BoundaryRightMost,:)+repmat(Correction',[1,viewNum]);
+    SinogramC(BoundaryRight+1:BoundaryRightMost,:)=SinogramC(BoundaryRight+1:BoundaryRightMost,:)+Correction';
 end
