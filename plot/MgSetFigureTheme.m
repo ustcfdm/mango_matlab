@@ -6,11 +6,17 @@ function r = MgSetFigureTheme(theme)
 % default: default setup.
 
 if theme == "dark"
-    colors = [255, 255, 255;        % white
-        255, 192, 0;                % orange
+    colors = [%255, 255, 255;        % white
+        0, 168, 255;        % blue
+        251, 197, 49;       % yellow
+        76, 209, 55;        % green
+        156, 136, 255;      % purple
+    
+        %255, 192, 0;                % orange
         0, 191, 191;                % dark teal
-        191, 0, 191;                % purple
+        191, 0, 0;                  % red
         0, 191, 0;                  % Green
+        191, 0, 191;                % purple
         
         127, 237, 54;
         255, 0, 59;
