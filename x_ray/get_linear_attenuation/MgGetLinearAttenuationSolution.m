@@ -4,6 +4,7 @@ function mu = MgGetLinearAttenuationSolution(material, energy, concentration)
 % energy: between 1 and 150 keV.
 % concentration: same size as material [mg/mL].
 
+material = convertCharsToStrings(material);
 
 mu_water = MgGetLinearAttenuation("water", energy);
 mu = mu_water;
