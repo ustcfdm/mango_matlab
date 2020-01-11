@@ -24,7 +24,9 @@
 │   │   MgMkdir.m
 │   │   MgReadRawFile.m
 │   │   MgReadRawFileSubRegion.m
+│   │   MgReadTiff.m
 │   │   MgSaveRawFile.m
+│   │   MgWriteImage.m
 │   │   
 │   └───MgDirRegExp
 │           functionSignatures.json
@@ -37,9 +39,10 @@
 │       MgMeasureNpsIec.m
 │       MgRadialAverage.m
 │       
-├───interpolation
 ├───PCD
 │   │   MgConvertHeTeToLe.m
+│   │   MgInterp1D.m
+│   │   MgInterpSinogram.m
 │   │   MgReadEviThresholds.m
 │   │   
 │   ├───energy_response
