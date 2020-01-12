@@ -17,7 +17,7 @@ data = zeros(h, w, s);
 
 for k = 1:s
     t.setDirectory(k);
-    data(:,:,k) = t.read();
+    data(:,:,k) = cast(t.read(), 'double');
 end
 
 t.close();
