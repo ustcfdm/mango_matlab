@@ -27,6 +27,7 @@
 │   │   MgReadTiff.m
 │   │   MgSaveRawFile.m
 │   │   MgWriteImage.m
+│   │   MgWriteTiff.m
 │   │   
 │   └───MgDirRegExp
 │           functionSignatures.json
