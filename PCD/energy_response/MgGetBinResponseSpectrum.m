@@ -8,7 +8,7 @@ function bin_spectrum = MgGetBinResponseSpectrum(spectrum, energy, threshold_low
 
 enRes = importdata('MgEnergyResponseData.txt');
 
-en = interp1(energy, spectrum, 1:120);
+en = interp1(squeeze(energy), squeeze(spectrum), 1:120);
 en(isnan(en)) = 0;
 
 bin = sum(enRes(threshold_low:threshold_high,:), 1);
