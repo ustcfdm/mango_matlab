@@ -1,0 +1,26 @@
+{
+    "MgReadJsoncFile":
+    {
+        "inputs":
+        [
+            {"name":"filename", "kind":"required", "type":"file", "purpose":"json file name"}
+        ]
+    },
+
+    "MgRemoveJsoncComments":
+    {
+        "inputs":
+        [
+            {"name":"char", "kind":"required", "type":["char"], "purpose":"json string"}
+        ]
+    },
+
+    "MgSaveToJsonFile":
+    {
+        "inputs":
+        [
+            {"name":"struct", "kind":"required", "type":"struct", "purpose":"json struct"},
+            {"name":"filename", "kind":"required", "type":"file", "purpose":"json file name"}
+        ]
+    }
+}

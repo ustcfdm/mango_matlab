@@ -1,0 +1,11 @@
+{
+    "MgPoissrndGpu":
+    {
+        "inputs":
+        [
+            {"name":"lambda", "kind":"required", "type":["numeric", "real"], "purpose":"Poisson mean value"},
+            {"name":"size", "kind":"ordered", "type":["integer", "real"], "purpose":"size of output"},
+            {"name":"seed", "kind":"ordered", "type":["integer", "real"], "purpose":"seed"}
+        ]
+    }
+}

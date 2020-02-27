@@ -1,8 +1,5 @@
-﻿List of content:
-│   content.txt
+﻿List of functions content:
 │   MgCmdLineProgressBar.m
-│   MgGetTypeBytes.m
-│   update_list.ps1
 │   
 ├───colormap
 │       MgColorMapCyan.m
@@ -21,6 +18,7 @@
 │           MgGetBoneCorrectionConfigSampleFile.m
 │           
 ├───file
+│   │   MgGetTypeBytes.m
 │   │   MgMkdir.m
 │   │   MgReadRawFile.m
 │   │   MgReadRawFileSubRegion.m
@@ -40,6 +38,13 @@
 │       MgMeasureNpsIec.m
 │       MgRadialAverage.m
 │       
+├───jsonc
+│       functionSignatures.json
+│       MgReadJsoncFile.m
+│       MgRemoveJsoncComments.mexw64
+│       MgSaveToJsonFile.m
+│       README.md
+│       
 ├───PCD
 │   │   MgConvertHeTeToLe.m
 │   │   MgInterp1D.m
@@ -58,10 +63,14 @@
 │           PanelSymmetryCorrection.m
 │           
 ├───plot
-│       imshow3D.m
 │       MgBreakYAxis.m
 │       MgSaveFigure.m
 │       MgSetFigureTheme.m
+│       
+├───random_gpu
+│       functionSignatures.json
+│       MgPoissrndGpu.mexw64
+│       README.md
 │       
 └───x_ray
     │   MgAttenuateSpectrum.m
