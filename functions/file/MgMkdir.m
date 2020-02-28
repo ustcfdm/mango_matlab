@@ -8,7 +8,7 @@ if nargin < 2
     overwrite = false;
 end
 
-if exist(dirName) == 7
+if exist(dirName, 'dir') == 7
     if overwrite == true
         rmdir(dirName, 's');
     else

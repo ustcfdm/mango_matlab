@@ -21,6 +21,12 @@ switch material
         density = 2.12;
     case "CaCl2"
         density = 2.15;
+    case "CsI"
+        density = 4.51;
+    case "GOS"
+        density = 7.32;
+    case "NaI"
+        density = 3.67;
     case "teflon"
         density = 2.2;
     case "UricAcid"
