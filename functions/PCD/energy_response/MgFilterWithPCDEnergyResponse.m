@@ -21,14 +21,13 @@ N = enRes * N0;
 % do a linear transformation if required
 if nargin == 4
     en = a*en + b;
-    % spectrum_out = a * spectrum_out + b;
 end
 
 % justify array length of output spectrum
 spectrum_out = interp1(en, N, energy);
 spectrum_out = reshape(spectrum_out, size(spectrum_in));
 
-
+spectrum_out(isnan(spectrum_out)) = 0;
 
 
 end
