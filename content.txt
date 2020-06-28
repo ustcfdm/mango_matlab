@@ -24,6 +24,7 @@
 │  │  MgReadRawFileSubRegion.m
 │  │  MgReadTiff.m
 │  │  MgSaveRawFile.m
+│  │  MgSortStringByNumber.m
 │  │  MgWriteImage.m
 │  │  MgWriteTiff.m
 │  │  
@@ -53,6 +54,7 @@
 │  │  
 │  ├─energy_response
 │  │      MgEnergyResponseData.txt
+│  │      MgFilterSinogramWithEnergyResponse.m
 │  │      MgFilterWithPCDEnergyResponse.m
 │  │      MgGetBinResponseSpectrum.m
 │  │      MgGetEnergyResponseMatrix.m
@@ -90,6 +92,7 @@
     │      blood
     │      bone
     │      brain
+    │      C
     │      Ca
     │      CaC2O4
     │      CaCl2
@@ -100,15 +103,27 @@
     │      Fe
     │      Gd
     │      GOS
+    │      H
     │      I
+    │      K
+    │      kidney
+    │      liver
     │      MgGetLinearAttenuation.m
+    │      MgGetLinearAttenuationCompound.m
     │      MgGetLinearAttenuationSolution.m
+    │      muscle
+    │      N
+    │      Na
     │      NaI
+    │      O
+    │      P
     │      Pb
     │      pmma
     │      polypropylene
     │      polystyrene
+    │      S
     │      Sn
+    │      spleen
     │      teflon
     │      tissue
     │      Tm
