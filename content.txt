@@ -1,159 +1,163 @@
 ﻿List of functions content:
-│  MgCmdLineProgressBar.m
-│  
-├─colormap
-│      MgColorMapCyan.m
-│      MgColorMapGreen.m
-│      
-├─ct
-│  │  MgDiffSinogram.m
-│  │  MgGenerateSinogram.m
-│  │  MgGetSignKernel.m
-│  │  MgRebinSinogram.m
-│  │  MgRingCorrection.m
-│  │  
-│  └─BeamHardeningCorr
-│          config_sample_bone_correction.jsonc
-│          MgBoneBeamHardeningCorrection.m
-│          MgGetBoneCorrectionConfigSampleFile.m
-│          
-├─file
-│  │  MgGetTypeBytes.m
-│  │  MgMkdir.m
-│  │  MgReadRawFile.m
-│  │  MgReadRawFileSubRegion.m
-│  │  MgReadTiff.m
-│  │  MgSaveRawFile.m
-│  │  MgSortStringByNumber.m
-│  │  MgWriteImage.m
-│  │  MgWriteTiff.m
-│  │  
-│  └─MgDirRegExp
-│          functionSignatures.json
-│          MgDirRegExp.cpp
-│          MgDirRegExp.mexw64
-│          
-├─image_measure
-│      MgGetOtfCurve.m
-│      MgMeasureNps.m
-│      MgMeasureNpsIec.m
-│      MgRadialAverage.m
-│      
-├─jsonc
-│      functionSignatures.json
-│      MgReadJsoncFile.m
-│      MgRemoveJsoncComments.mexw64
-│      MgSaveToJsonFile.m
-│      README.md
-│      
-├─PCD
-│  │  MgConvertHeTeToLe.m
-│  │  MgInterp1D.m
-│  │  MgInterpSinogram.m
-│  │  MgReadEviThresholds.m
-│  │  
-│  ├─energy_response
-│  │      MgEnergyResponseData.txt
-│  │      MgFilterSinogramWithEnergyResponse.m
-│  │      MgFilterWithPCDEnergyResponse.m
-│  │      MgGetBinResponseSpectrum.m
-│  │      MgGetEnergyResponseMatrix.m
-│  │      
-│  └─panel_correction
-│          PanelAlignment.m
-│          PanelInterp.m
-│          PanelSymmetryCorrection.m
-│          
-├─plot
-│      MgBreakYAxis.m
-│      MgRemoveFigurePadding.m
-│      MgSaveFigure.m
-│      MgSetFigureTheme.m
-│      
-├─random_gpu
-│      functionSignatures.json
-│      MgPoissrndGpu.mexw64
-│      README.md
-│      
-└─x_ray
-    │  MgAttenuateSpectrum.m
-    │  MgCalculateExposure.m
-    │  MgCalculateHVL.m
-    │  MgGetAtomicZ.m
-    │  MgGetEffectiveZ.m
-    │  MgGetMaterialDensity.m
-    │  MgGetMuL.m
-    │  
-    ├─get_linear_attenuation
-    │      adipose
-    │      air
-    │      Al
-    │      Au
-    │      blood
-    │      bone
-    │      brain
-    │      C
-    │      Ca
-    │      CaC2O4
-    │      CaCl2
-    │      Ce
-    │      Cl
-    │      CsI
-    │      Cu
-    │      Fe
-    │      Gd
-    │      GOS
-    │      H
-    │      I
-    │      K
-    │      kidney
-    │      liver
-    │      MgGetLinearAttenuation.m
-    │      MgGetLinearAttenuationCompound.m
-    │      MgGetLinearAttenuationSolution.m
-    │      muscle
-    │      N
-    │      Na
-    │      NaI
-    │      O
-    │      P
-    │      Pb
-    │      pmma
-    │      polypropylene
-    │      polystyrene
-    │      S
-    │      Sn
-    │      spleen
-    │      teflon
-    │      tissue
-    │      Tm
-    │      UricAcid
-    │      UricAcidSodiumSalt
-    │      W
-    │      water
-    │      Zn
-    │      
-    ├─get_mass_attenuation
-    │      adipose.txt
-    │      air.txt
-    │      Al.txt
-    │      bone.txt
-    │      Ca.txt
-    │      Cl.txt
-    │      Cu.txt
-    │      Fe.txt
-    │      I.txt
-    │      lung.txt
-    │      MgGetEnergyMassAttenuation.m
-    │      MgGetMassAttenuation.m
-    │      MgGetMassAttenuationSolution.m
-    │      P.txt
-    │      pmma.txt
-    │      polyethylene.txt
-    │      teflon.txt
-    │      water.txt
-    │      
-    └─get_spectrum
+│   MgCmdLineProgressBar.m
+│   
+├───colormap
+│       MgColorMapCyan.m
+│       MgColorMapGreen.m
+│       
+├───ct
+│   │   MgDiffSinogram.m
+│   │   MgGenerateSinogram.m
+│   │   MgGetSignKernel.m
+│   │   MgRebinSinogram.m
+│   │   MgRingCorrection.m
+│   │   
+│   └───BeamHardeningCorr
+│           config_sample_bone_correction.jsonc
+│           MgBoneBeamHardeningCorrection.m
+│           MgGetBoneCorrectionConfigSampleFile.m
+│           
+├───DICOM
+│       MgDicomRead.m
+│       MgDicomReadVolume.m
+│       
+├───file
+│   │   MgGetTypeBytes.m
+│   │   MgMkdir.m
+│   │   MgReadRawFile.m
+│   │   MgReadRawFileSubRegion.m
+│   │   MgReadTiff.m
+│   │   MgSaveRawFile.m
+│   │   MgSortStringByNumber.m
+│   │   MgWriteImage.m
+│   │   MgWriteTiff.m
+│   │   
+│   └───MgDirRegExp
+│           functionSignatures.json
+│           MgDirRegExp.cpp
+│           MgDirRegExp.mexw64
+│           
+├───image_measure
+│       MgGetOtfCurve.m
+│       MgMeasureNps.m
+│       MgMeasureNpsIec.m
+│       MgRadialAverage.m
+│       
+├───jsonc
+│       functionSignatures.json
+│       MgReadJsoncFile.m
+│       MgRemoveJsoncComments.mexw64
+│       MgSaveToJsonFile.m
+│       README.md
+│       
+├───PCD
+│   │   MgConvertHeTeToLe.m
+│   │   MgInterp1D.m
+│   │   MgInterpSinogram.m
+│   │   MgReadEviThresholds.m
+│   │   
+│   ├───energy_response
+│   │       MgEnergyResponseData.txt
+│   │       MgFilterSinogramWithEnergyResponse.m
+│   │       MgFilterWithPCDEnergyResponse.m
+│   │       MgGetBinResponseSpectrum.m
+│   │       MgGetEnergyResponseMatrix.m
+│   │       
+│   └───panel_correction
+│           PanelAlignment.m
+│           PanelInterp.m
+│           PanelSymmetryCorrection.m
+│           
+├───plot
+│       MgBreakYAxis.m
+│       MgRemoveFigurePadding.m
+│       MgSaveFigure.m
+│       MgSetFigureTheme.m
+│       
+├───random_gpu
+│       functionSignatures.json
+│       MgPoissrndGpu.mexw64
+│       README.md
+│       
+└───x_ray
+    │   MgAttenuateSpectrum.m
+    │   MgCalculateExposure.m
+    │   MgCalculateHVL.m
+    │   MgGetAtomicZ.m
+    │   MgGetEffectiveZ.m
+    │   MgGetMaterialDensity.m
+    │   MgGetMuL.m
+    │   
+    ├───get_linear_attenuation
+    │       adipose
+    │       air
+    │       Al
+    │       Au
+    │       blood
+    │       bone
+    │       brain
+    │       C
+    │       Ca
+    │       CaC2O4
+    │       CaCl2
+    │       Ce
+    │       Cl
+    │       CsI
+    │       Cu
+    │       Fe
+    │       Gd
+    │       GOS
+    │       H
+    │       I
+    │       K
+    │       kidney
+    │       liver
+    │       MgGetLinearAttenuation.m
+    │       MgGetLinearAttenuationCompound.m
+    │       MgGetLinearAttenuationSolution.m
+    │       muscle
+    │       N
+    │       Na
+    │       NaI
+    │       O
+    │       P
+    │       Pb
+    │       pmma
+    │       polypropylene
+    │       polystyrene
+    │       S
+    │       Sn
+    │       spleen
+    │       teflon
+    │       tissue
+    │       Tm
+    │       UricAcid
+    │       UricAcidSodiumSalt
+    │       W
+    │       water
+    │       Zn
+    │       
+    ├───get_mass_attenuation
+    │       adipose.txt
+    │       air.txt
+    │       Al.txt
+    │       bone.txt
+    │       Ca.txt
+    │       Cl.txt
+    │       Cu.txt
+    │       Fe.txt
+    │       I.txt
+    │       lung.txt
+    │       MgGetEnergyMassAttenuation.m
+    │       MgGetMassAttenuation.m
+    │       MgGetMassAttenuationSolution.m
+    │       P.txt
+    │       pmma.txt
+    │       polyethylene.txt
+    │       teflon.txt
+    │       water.txt
+    │       
+    └───get_spectrum
             MgGetSpectrum.m
             MgGetSpectrumNoAl.m
             spectrum_air_100.txt
