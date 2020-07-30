@@ -15,7 +15,7 @@
 #include "mex.h"
 
 // acquire the list of file names in the dir that matches filter
-std::vector<std::string> GetFileNamesInDir(const char* dir, const char* filter)
+std::vector<std::string> GetFileNamesInDir(const char* dir, const char* filter, const bool useFullPathName)
 {
     namespace fs = std::experimental::filesystem;
 
@@ -29,13 +29,26 @@ std::vector<std::string> GetFileNamesInDir(const char* dir, const char* filter)
 	fs::directory_iterator end_iter;
 	std::regex e(filter);
 
+	fs::path folder(dir);
+
 	for (auto&& fe : fs::directory_iterator(dir))
 	{
 		std::string file = fe.path().filename().string();
 
 		if (std::regex_match(file, e))
 		{
-			filenames.push_back(file);
+			if (useFullPathName)
+			{
+				fs::path file(file);
+				filenames.push_back((folder / file).string());
+			}
+			else
+			{
+				filenames.push_back(file);
+			}
+			
+			
+			
 		}
 	}
 	return filenames;
@@ -49,22 +62,33 @@ std::vector<std::string> GetFileNamesInDir(const char* dir, const char* filter)
 void mexFunction(int nlhs, mxArray *plhs[],	int nrhs, const mxArray *prhs[])
 {
 	/* check for proper number of arguments */
-	if (nrhs != 2) {
-		mexErrMsgTxt("Two inputs required.");
+	if (nrhs != 2 && nrhs != 3) {
+		mexErrMsgTxt("Two or three inputs required.");
 	}
 	if (nlhs > 1) {
 		mexErrMsgTxt("Too many output arguments");
 	}
 	/* inputs must be string */
-	if (!mxIsChar(prhs[0]) || !mxIsChar(prhs[1])) {
-		mexErrMsgTxt("All inputs must be string.");
+	if ( !(mxIsChar(prhs[0]) && mxIsChar(prhs[1]) && nrhs == 2)
+		&& !(mxIsChar(prhs[0]) && mxIsChar(prhs[1]) && mxIsLogical(prhs[2]) && nrhs == 3)) 
+	{
+		mexErrMsgTxt("Inputs must be string or logical.");
 	}
 
     /* copy the string data from prhs[0] and prhs[1] into a C string inputString.    */
     char* dir = mxArrayToString(prhs[0]);
     char* regexp = mxArrayToString(prhs[1]);
 
-    auto filenames = GetFileNamesInDir(dir, regexp);
+	/* Whether the third argument exists or net */
+	bool useFullPathName = false;
+	if (nrhs == 3) 
+	{
+		bool* tmp = (bool*)mxGetData(prhs[2]);
+		useFullPathName = tmp[0];
+	}
+	
+
+    auto filenames = GetFileNamesInDir(dir, regexp, useFullPathName);
 
     plhs[0] = mxCreateCellMatrix(filenames.size(), 1);
 
