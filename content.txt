@@ -13,6 +13,8 @@
 │   │   MgGetSignKernel.m
 │   │   MgRebinSinogram.m
 │   │   MgRingCorrection.m
+│   │   MgRingCorrectionSplit.asv
+│   │   MgRingCorrectionSplit.m
 │   │   
 │   └───BeamHardeningCorr
 │           config_sample_bone_correction.jsonc
@@ -72,6 +74,7 @@
 │           
 ├───plot
 │       MgBreakYAxis.m
+│       MgImshowOverlay.m
 │       MgRemoveFigurePadding.m
 │       MgSaveFigure.m
 │       MgSetFigureTheme.m
