@@ -20,6 +20,9 @@
 │           MgBoneBeamHardeningCorrection.m
 │           MgGetBoneCorrectionConfigSampleFile.m
 │           
+├───data_process
+│       MgPolyval.m
+│       
 ├───DICOM
 │       MgDicomRead.m
 │       MgDicomReadVolume.m
