@@ -1,0 +1,40 @@
+// This is a config sample of MgNMAR.
+{
+    /*****************************************
+    * You need fbp and fpj config file for your normal backward/forward projection. 
+    * Keep the corresponding parameters consistent, such as SDD/SID, offcenter, 
+    * rotation angle, etc.
+    *****************************************/
+    // FBP config file
+    "fbp_config": "config_fbp.jsonc",
+
+    // FPJ config file
+    "fpj_config": "config_fpj.jsonc",
+
+    //---------------------------------------------------------------------
+    // Parameters for images of metal ROI.
+    // The metal ROI images should have same dimension, number of slice as
+    // you reconstructed images.
+    //---------------------------------------------------------------------
+    // Folder of metal ROI images
+    "MetalRoiDir": "roi_metal",
+    // all the metal ROI files in the input directory, use regular expression
+    "MetalRoiFiles": "img.*.raw",
+    // Folder for final corrected images
+    "OutputDir": "img_NMAR",
+
+    // Water value range and bone value range for normalization in NMAR [unit: depending on you image unit HU or mu]
+    "WaterRange": [-400, 200],
+    "BoneRange": [200, 99999999],
+
+    // (optional) Smooth the interpolated region with Gaussian kernel
+    "GaussianSmoothSigma": 1,
+
+    // (optional) Circular crop FOV. If your sinogram have truncation, the reconstructed images will have blooming. This will impact forward projection. Crop it to make improve forward projection.
+    // The parameter could an integer [unit: pixel] or a decimal [ratio to half of side length]
+    "CircularCropFOVRadius": 250, 
+
+    // Keep temporary files
+    "KeepTemporaryFile": false
+
+}

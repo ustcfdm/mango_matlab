@@ -1,4 +1,4 @@
-function MgWriteDicomFiles(img, outputFolder, patientName, seriesDescription, kVp, imgDimension, imageSize, sliceThickness, spacingBetweenSlices, windowLevel, sourceToDetectorDistance, sourceToIsocenterDistance)
+function MgWriteDicomFiles(img, outputFolder, patientName, seriesDescription, kVp, imgDimension, imageSize, sliceThickness, spacingBetweenSlices, windowLevel, sourceToDetectorDistance, sourceToIsocenterDistance, dicomHeader)
 % MgWriteDicomFiles(img, outputFolder, imgDimension, seriesDescription, imageSize, kVp, sliceThickness, spacingBetweenSlices, windowLevel, sourceToDetectorDistance, sourceToIsocenterDistance)
 % Write the image (volume) to DICOM files in folder 'outputFolder'
 % imgDimension: e.g. 512 or 1024
@@ -14,7 +14,12 @@ function MgWriteDicomFiles(img, outputFolder, patientName, seriesDescription, kV
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Prepare meta header info
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-meta = dicominfo('dicom_sample.dicm');
+if nargin == 13
+    meta = dicomHeader;
+else
+    meta = dicominfo('dicom_sample.dicm');
+end
+
 uid3 = dicomuid();
 
 meta.PatientName.FamilyName = patientName;
