@@ -12,6 +12,7 @@
 │   │   MgGenerateSinogram.m
 │   │   MgGetSignKernel.m
 │   │   MgRebinSinogram.m
+│   │   MgResliceProjectionToSinogram.m
 │   │   MgRingCorrection.m
 │   │   MgRingCorrectionSplit.m
 │   │   
@@ -27,6 +28,7 @@
 ├───data_process
 │       MgConstructPolyMatrix.m
 │       MgPolyval.m
+│       MgPolyvalTwoVariable.m
 │       
 ├───DICOM
 │       dicom_sample.dicm
