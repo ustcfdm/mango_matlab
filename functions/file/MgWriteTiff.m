@@ -1,11 +1,11 @@
-function MgWriteTiff(filename, data, dataType)
+function MgWriteTiff(filename, data, window, dataType)
 % MgWriteTiff(filename, data, dataType)
 % This function write image volume to a tiff file. Arguments:
 % filename: the name of the file
 % data: the image volume
 % dataType: 'single' (default), 'uint16', 'int16' ....
 
-if nargin < 3
+if nargin < 4
     dataType = 'single';
 end
 
@@ -18,6 +18,10 @@ tag.SamplesPerPixel = 1;
 tag.Compression = Tiff.Compression.None;
 tag.PlanarConfiguration = Tiff.PlanarConfiguration.Chunky;
 tag.Photometric = Tiff.Photometric.MinIsBlack;
+
+if nargin > 2
+    tag.ImageDescription = sprintf('ImageJ=1.51w\nmin=%f\nmax=%f', window(1), window(2));
+end
 
 % get sample format
 if contains(dataType, 'uint')
