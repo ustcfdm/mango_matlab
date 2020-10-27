@@ -104,6 +104,9 @@ elseif theme == "default"
     
     set(groot, 'DefaultTextFontSize', 'remove');
     set(groot, 'DefaultAxesFontSize', 'remove');
+    
+    set(groot, 'DefaultTextFontName', 'remove');
+    set(groot, 'DefaultAxesFontName', 'remove');
 else
     error("Do not have theme '%s', only have 'dark', 'light' and 'default'.\n", theme);    
 end
