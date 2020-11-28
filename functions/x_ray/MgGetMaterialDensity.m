@@ -33,6 +33,8 @@ switch material
         density = 1.05;
     case "NaI"
         density = 3.67;
+    case "PMMA"
+        density = 1.18;
     case "spleen"
         density = 1.06;
     case "teflon"
