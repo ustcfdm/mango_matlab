@@ -20,12 +20,12 @@ classdef MgCmdLineProgressBar < handle
         %--- print method
         function print(obj, n, tot)
             fprintf('%s', char(8*ones(1, obj.last_msg_len))) % delete last info_str
-            info_str = sprintf('%d/%d', n, tot);
+            info_str = sprintf('%d/%d\n', n, tot);
             fprintf('%s', info_str);
             %--- assume user counts monotonically
-            if n == tot
-                fprintf('\n')
-            end
+%             if n == tot
+%                 fprintf('\n')
+%             end
             obj.last_msg_len = length(info_str);
         end
         %--- dtor
