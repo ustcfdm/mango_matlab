@@ -1,18 +1,24 @@
-function [img_absorp, img_dark, img_phase] = MgDpcMultiContrast(obj_3d, air_3d, phasePeriod, sampleInterval)
+function [img_absorp, img_dark, img_phase] = MgDpcMultiContrast(obj_3d, air_3d, phasePeriod, moirePeriodCount, sampleInterval)
 % [img_absorp, img_dark, img_phase] = MgDpcMultiContrast(obj_3d, air_3d, phasePeriod, sampleInterval)
 % Calculate DPC multi contrast images.
 % obj_3d: [M x N x S] projection data with object.
 % air_3d: [M x N x S] projection data of air.
 % phasePeriod (optional): phase step size, defalut is S.
+% moirePeriodCount (optional): number of moire period in one phase step
+% period, default is 1.
 % sampleInterval (optional): sample interval along z direction, default is phasePeriod.
 
 [rows, cols, S] = size(obj_3d);
 
-if nargin == 3
+if nargin == 2
     phasePeriod = S;
-    sampleInterval = S;
+    moirePeriodCount = 1;
+    sampleInterval = 1;
+elseif nargin == 3
+    moirePeriodCount = 1;
+    sampleInterval = 1;
 elseif nargin == 4
-    sampleInterval = phasePeriod;
+    sampleInterval = 1;
 end
 
 M = phasePeriod;
@@ -31,8 +37,8 @@ img_phase = zeros(rows, cols, N);
 
 k = reshape(1:S, 1, 1, []);
 
-cos_array = cos(2*pi*k/M);
-sin_array = sin(2*pi*k/M);
+cos_array = cos(2*pi*k/M *moirePeriodCount);
+sin_array = sin(2*pi*k/M *moirePeriodCount);
 obj_cos = obj_3d .* cos_array;
 obj_sin = obj_3d .* sin_array;
 air_cos = air_3d .* cos_array;
