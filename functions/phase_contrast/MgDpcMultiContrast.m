@@ -63,9 +63,9 @@ for n = 1:N
     img_phase(:,:,n) = angle(exp(1i * (obj_phase - air_phase)));
 end
 
-img_absorp = mean(img_absorp, 3);
-img_dark = mean(img_dark, 3);
-img_phase = mean(img_phase, 3);
+img_absorp = mean(img_absorp, 3, 'omitnan');
+img_dark = mean(img_dark, 3, 'omitnan');
+img_phase = mean(img_phase, 3, 'omitnan');
 
 end
 
