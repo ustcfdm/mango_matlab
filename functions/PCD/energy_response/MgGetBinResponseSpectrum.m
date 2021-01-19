@@ -8,6 +8,10 @@ function bin_spectrum = MgGetBinResponseSpectrum(spectrum, energy, threshold_low
 % bin_spectrum: respond spectrum in energy bin [threshold_low,threshold_high)
 % a, b: shift coefficients of energy (a*E + b)
 
+if nargin < 5
+    acs_mode = true;
+end
+
 if nargin <= 5
     enRes = MgGetEnergyResponseMatrix(acs_mode);
 else
