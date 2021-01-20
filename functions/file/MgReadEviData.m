@@ -15,6 +15,8 @@ switch header.Image_Type
         dataType = 'uint32';
     case '32-bit Signed'
         dataType = 'int32';
+    case 'Single'
+        dataType = 'single';
     otherwise
         dataType = header.Image_Type;
 end
