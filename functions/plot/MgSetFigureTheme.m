@@ -7,6 +7,11 @@ function r = MgSetFigureTheme(theme)
 
 if theme == "dark"
     colors = [%255, 255, 255;        % white
+        0, 143, 237;
+        237, 94, 0;
+        24, 237, 0;
+        213, 0, 237;
+    
         0, 114, 189;
         189, 75, 0;
         20, 189, 0;
@@ -61,6 +66,9 @@ if theme == "dark"
    
     set(groot, 'DefaultTextFontSize', 16);
     set(groot, 'DefaultAxesFontSize', 16);
+    
+    set(groot, 'DefaultTextFontName', 'remove');
+    set(groot, 'DefaultAxesFontName', 'remove');
     
 elseif theme == "light"
     set(groot, 'DefaultAxesColor', 'remove');
