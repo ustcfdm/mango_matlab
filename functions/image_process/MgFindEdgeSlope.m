@@ -1,7 +1,7 @@
 function slope = MgFindEdgeSlope(img_2d)
 % tiltAngle = MgFindEdgeSlope(img_2d)
 % Fing an image edge slope. x: row direction. y: col direction.
-% img_2d: 2D image of an edge.
+% img_2d: 2D image of an edge. Edge should be almost vertical with small angle tilt.
 % slope: slope of the edge.
 
 % find the edge

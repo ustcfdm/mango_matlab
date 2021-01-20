@@ -1,6 +1,8 @@
 function [esf_smooth, x_smooth] = MgSmoothLsfCurve(lsf, x, resampleInterval, smoothThickness)
 % [esf_smooth, x_smooth] = MgSmoothEsfCurve(esf, x, resampleInterval, smoothThickness)
-% Smooth ESF curve 
+% Smooth ESF curve with given smooth thickness.
+% resampleInterval: x sampling interval (e.g. 0.05 pixel).
+% smoothThickness: smooth thickness (unit: per resampleInterval).
 
 % resample interval
 dx = resampleInterval;
@@ -15,8 +17,6 @@ for n = 1:numel(x_smooth)-ds
     esf_smooth(n) = mean(lsf(idx));
 end
 
-% figure(1)
-% plot(x_smooth(1:end-1), esf_smooth(1:end-1));
 x_smooth = x_smooth(1:end-ds);
 esf_smooth = esf_smooth(1:end-ds);
 

@@ -1,8 +1,10 @@
 function [lsf, x] = MgGetLsfUnresample(img_2d, slope)
 % [esf, x] = MgGetLsfUnresample(img_2d, slope)
 % Get LSF (line spread function) curve from img_2d.
+% img_2d: 2D image. Edge should be almost vertical with small angle tilt.
 % slope: you can get it from function MgFindEdgeSlope(img_2d).
-
+% lsf: LSF curve.
+% x: x positions of lsf array.
 
 
 img_2d = diff(img_2d, 1, 2);
@@ -14,20 +16,8 @@ for row = 2:rows
     x_2d(row,:) = x_2d(row,:) - (row-1) * slope;
 end
 
-% figure
-% plot(x_2d(:), img_2d(:), '.')
-
 [x, idx] = sort(x_2d(:));
 lsf = img_2d(idx);
-
-% align LSF to center
-
-
-% [~, idx_center] = max(lsf);
-% x = x - x(idx_center);
-
-% figure
-% plot(x, esf)
 
 end
 
