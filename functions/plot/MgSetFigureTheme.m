@@ -71,9 +71,13 @@ if theme == "dark"
     set(groot, 'DefaultAxesFontName', 'remove');
     
 elseif theme == "light"
-    set(groot, 'DefaultAxesColor', 'remove');
-    set(groot, 'DefaultFigureColor', 'remove');
+    set(groot, 'DefaultAxesColor', 'white');
+    set(groot, 'DefaultFigureColor', 'white');
     set(groot, 'DefaultFigureInvertHardcopy', 'remove');
+    
+%     set(groot, 'DefaultFigureColor', 'none');
+%     set(groot, 'DefaultFigureInvertHardcopy', 'off');
+%     set(groot, 'DefaultAxesColor', 'none');
     
     set(groot, 'DefaultAxesColorOrder', 'remove');
     set(groot, 'DefaultLineLineWidth', 1.2);

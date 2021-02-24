@@ -77,7 +77,7 @@ N0_bin(:,:,binCount+1) = sum(N0_res(:,:,thresholds(1):end), 3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % add noise or not
 if addNoise
-    N = MgPoissrndGpu(N);
+    N_bin = MgPoissrndGpu(N_bin);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
