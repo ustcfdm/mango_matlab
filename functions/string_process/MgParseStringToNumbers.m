@@ -5,7 +5,7 @@ function numbers = MgParseStringToNumbers(in_str)
 % numbers: output integer numbers.
 
 numbers = [];
-s1 = strsplit(in_str, ',')
+s1 = strsplit(in_str, ',');
 
 % whether the substring contains '-'
 containDash = contains(s1, '-');
