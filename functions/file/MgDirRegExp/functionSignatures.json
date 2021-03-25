@@ -3,7 +3,17 @@
     {
         "inputs":
         [
-            {"name":"dir", "kind":"required", "type":["folder"], "purpose":"Foler"},
+            {"name":"dir", "kind":"required", "type":["folder"], "purpose":"Foler name"},
+            {"name":"regexp", "kind":"required", "type":["char"], "purpose":"Regular expression for file name"},
+            {"name":"useFullPathName", "kind":"optional", "type":["bool"], "purpose":"Whether use full path name"}
+        ]
+    },
+
+    "MgDirRegExpV2":
+    {
+        "inputs":
+        [
+            {"name":"dir", "kind":"required", "type":["folder"], "purpose":"Foler name"},
             {"name":"regexp", "kind":"required", "type":["char"], "purpose":"Regular expression for file name"}
         ]
     }
