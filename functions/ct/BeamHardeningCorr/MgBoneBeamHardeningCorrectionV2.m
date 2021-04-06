@@ -58,9 +58,7 @@ s = js.CorrectionParameters;
 tmp = "";
 coeff(idx) = 1;
 for k = 1:strlength(s)
-    if s(k) == " "
-        continue;
-    elseif isstrprop(s(k), 'digit') || s(k) == "."
+    if isstrprop(s(k), 'digit') || s(k) == "."
         tmp = tmp + s(k);
     elseif s(k) == "w" || s(k) == "b"
         tmp = s(k);

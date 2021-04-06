@@ -21,7 +21,9 @@
 │  │  
 │  ├─BeamHardeningCorr
 │  │      config_sample_bone_correction.jsonc
+│  │      config_sample_bone_correctionV2.jsonc
 │  │      MgBoneBeamHardeningCorrection.m
+│  │      MgBoneBeamHardeningCorrectionV2.m
 │  │      MgGetBoneCorrectionConfigSampleFile.m
 │  │      
 │  ├─NMAR
@@ -65,6 +67,8 @@
 │          functionSignatures.json
 │          MgDirRegExp.cpp
 │          MgDirRegExp.mexw64
+│          MgDirRegExpV2.cpp
+│          MgDirRegExpV2.mexw64
 │          
 ├─image_measure
 │      MgCalculateMtf1D.m
@@ -146,6 +150,7 @@
     │  MgAttenuateSpectrum.m
     │  MgCalculateExposure.m
     │  MgCalculateHVL.m
+    │  MgGetAtomicA.m
     │  MgGetAtomicZ.m
     │  MgGetEffectiveZ.m
     │  MgGetMaterialDensity.m

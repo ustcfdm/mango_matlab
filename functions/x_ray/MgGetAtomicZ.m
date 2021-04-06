@@ -221,24 +221,6 @@ switch atom
         Z = 108;
     case "Mt"
         Z = 109;
-    case "Ds"
-        Z = 110;
-    case "Rg"
-        Z = 111;
-    case "Cn"
-        Z = 112;
-    case "Nh"
-        Z = 113;
-    case "Fl"
-        Z = 114;
-    case "Mc"
-        Z = 115;
-    case "Lv"
-        Z = 116;
-    case "Ts"
-        Z = 117;
-    case "Og"
-        Z = 118;
     otherwise
         error("Unknown element '%s'\n", atom);
         
