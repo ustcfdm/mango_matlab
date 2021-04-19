@@ -73,6 +73,8 @@ switch material
         density = 4.92;
     case "K"
         density = 0.86;
+    case "Mg"
+        density = 1.74;
     case "N"
         density = 1.251;
     case "Na"

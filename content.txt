@@ -180,6 +180,7 @@
     │      K
     │      kidney
     │      liver
+    │      Mg
     │      MgGetLinearAttenuation.m
     │      MgGetLinearAttenuationCompound.m
     │      MgGetLinearAttenuationSolution.m
