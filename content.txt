@@ -156,6 +156,11 @@
     │  MgGetMaterialDensity.m
     │  MgGetMuL.m
     │  
+    ├─Gammex
+    │      calcium_inserts.txt
+    │      iodine_inserts.txt
+    │      MgGetLinearAttenuationGammex.m
+    │      
     ├─get_linear_attenuation
     │      adipose
     │      air
