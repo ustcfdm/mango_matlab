@@ -1,4 +1,5 @@
 function [sgm, N_bin, N0_bin, N_res, N0_res, N]  = MgGenerateSinogram(sgm_basis, N0, energy, basisNames, basisConcentration, thresholds, addNoise, energyResponseMatrix)
+% This function is deprecated.
 % [sgm, N_bin, N0_bin, N_res, N0_res, N, N_no_noise]  = MgGenerateSinogram(sgm_basis, N0, energy, basisNames, basisConcentration, thresholds, addNoise, useEnergyResponse)
 % For a given basis sinogram and spectrum, generate sinogram within an energy bin.
 % sgm: output sinogram [rows x cols x (bins+1)], [unitless], last one is full bin sinogram.
@@ -37,28 +38,6 @@ muL = sum(muL, 3);
 
 % spectrum after object (no noise)
 N = N0 .* exp(-muL);
-
-energyResponseMatrix = permute(energyResponseMatrix, [3, 2, 1]);
-
-% detector output spectrum after object
-N_res = zeros(size(N,1), 1, size(N,2));
-
-% N could be very large, let's divide it into several parts and apply energy response seperately
-length = 10000;
-loops = floor(size(N,1)/length);
-range = 1:length;
-for k = 1:loops
-    N_res(range,1,:) = sum(N(range,:).*energyResponseMatrix,2);
-    range = range + length;
-end
-range = range(1):size(N,1);
-N_res(range,1,:) = sum(N(range,:).*energyResponseMatrix,2);
-
-N_res = reshape(N_res, rows, cols, n);
-
-% detector output spectrum before object
-N0_res = sum(N0.*energyResponseMatrix, 2);
-N0_res = reshape(N0_res, 1, 1, n);
 
 % bin spectrum based on thresholds
 N_bin = zeros(rows, cols, binCount+1);
