@@ -180,7 +180,14 @@ for n = 1:numel(files_img)
     img_corr = MgReadRawFile(sprintf('./%s/%s', folder_img_interp, files_corr{n}),  js_fbp.ImageDimension, js_fbp.ImageDimension, js_fbp.SliceCount);
     
     idx = img_metal > 0.1;
+    
     img_corr(idx) = img_raw(idx);
+    
+    % make a blur border
+    disk = MgDiskMatrix(3);
+    idx_large = imdilate(idx, disk);
+    img_corr_blur = imgaussfilt(img_corr, 1);
+    img_corr(idx_large) = img_corr_blur(idx_large);
     
     % check whether want to circular crop FOV of images
     if isfield(js, 'CircularCropFOVRadius')
