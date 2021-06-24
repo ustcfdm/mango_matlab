@@ -15,7 +15,7 @@ file = sprintf('./%s/%s', folder, files{1});
 info = dicominfo(file);
 
 % sacle the image data
-img = img * info.RescaleSlope + info.RescaleIntercept;
+img = cast(img, 'double') * info.RescaleSlope + info.RescaleIntercept;
 
 
 end
