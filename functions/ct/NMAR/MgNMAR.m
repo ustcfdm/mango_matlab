@@ -106,7 +106,7 @@ rows = js_fbp.SinogramHeight;
 views = js_fbp.Views;
 cols = js_fbp.SinogramWidth;
 pages = js_fbp.SliceCount;
-% 
+%
 for n = 1:numel(files_sgm)
     %-------------------------------------
     % read sinograms
@@ -129,10 +129,16 @@ for n = 1:numel(files_sgm)
     for page = 1:pages
         for row = 1:views
             idx_metal = find(sgm_metal(row,:,page) > 0.01);
-            idx_left = min(idx_metal) - 1;
-            idx_right = max(idx_metal) + 1;
             
-            sgm_norm(row, idx_metal, page) = interp1([idx_left, idx_right], [sgm_norm(row,idx_left,page), sgm_norm(row,idx_right,page)], idx_metal);
+            idx_group = MgMergeContinuousIndex(idx_metal);
+            
+            for g = 1:numel(idx_group)
+                idx_left = idx_group{g}(1);
+                idx_right = idx_group{g}(2);
+                idx_between = idx_group{g}(1):idx_group{g}(2);
+                
+                sgm_norm(row, idx_between, page) = interp1([idx_left,idx_right], [sgm_norm(row,idx_left,page),sgm_norm(row,idx_right,page)], idx_between);
+            end
         end
     end
     
@@ -197,7 +203,7 @@ for n = 1:numel(files_img)
         end
         img_corr = MgCropCircleFOV(img_corr, js.CircularCropFOVRadius, fillValue);
     end
-        
+    
     % save to file
     filename = sprintf('./%s/%s', js.OutputDir, files_corr{n});
     MgSaveRawFile(filename, img_corr);
