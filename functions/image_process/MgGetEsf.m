@@ -13,9 +13,6 @@ end
 if nargin < 3
     x_interval = 0.05;
 end
-if nargin < 2
-    x_range = [-5, 5];
-end
 
 % find edge slope
 slope = MgFindEdgeSlope(img_2d);
@@ -43,6 +40,10 @@ esf_center = (left+right)/2;
 
 % shift center to position x=0
 x = x - x(idx_center);
+
+if nargin < 2
+    x_range = [x(1), x(end)];
+end
 
 % re-interp esf
 x_out = x_range(1):x_interval:x_range(2);

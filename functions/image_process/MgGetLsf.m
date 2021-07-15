@@ -1,14 +1,11 @@
-function [lsf, x] = MgGetLsf(img_2d, x_range, x_interval, smoothThickness)
-%
+function [lsf, x] = MgGetLsf(img_2d, x_interval, smoothThickness)
+% (deprecated)
 
-if nargin < 4
+if nargin < 3
     smoothThickness = 20;
 end
-if nargin < 3
-    x_interval = 0.05;
-end
 if nargin < 2
-    x_range = [-5, 5];
+    x_interval = 0.05;
 end
 
 if img_2d(1,1) > img_2d(1,end)
@@ -25,7 +22,7 @@ slope = MgFindEdgeSlope(img_2d);
 % plot(x, lsf)
 
 % resample and smooth LSF curve
-[lsf, x] = MgSmoothLsfCurve(lsf, x, x_range, x_interval, smoothThickness);
+[lsf, x] = MgSmoothLsfCurve(lsf, x, x_interval, smoothThickness);
 
 % align to center and adjust range
 % find x_center
