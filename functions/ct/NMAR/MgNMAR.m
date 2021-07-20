@@ -128,7 +128,7 @@ for n = 1:numel(files_sgm)
     % do the interpolation
     for page = 1:pages
         for row = 1:views
-            idx_metal = find(sgm_metal(row,:,page) > 0.01);
+            idx_metal = find(sgm_metal(row,:,page) > 1e-7);
             
             idx_group = MgMergeContinuousIndex(idx_metal);
             
@@ -149,7 +149,7 @@ for n = 1:numel(files_sgm)
         sgm_corr = imgaussfilt(sgm_corr, js.GaussianSmoothSigma);
     end
     
-    idx = sgm_metal > 0.01;
+    idx = sgm_metal > 1e-7;
     sgm(idx) = sgm_corr(idx);
     sgm_raw(1:views, :, :) = sgm(:, :, :);
     

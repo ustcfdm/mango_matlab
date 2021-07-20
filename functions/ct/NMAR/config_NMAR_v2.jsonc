@@ -1,0 +1,32 @@
+// This is a config sample of MgNMAR.
+{
+    /*****************************************
+    * You need fbp and fpj config file for your normal backward/forward projection. 
+    * Keep the corresponding parameters consistent, such as SDD/SID, offcenter, 
+    * rotation angle, etc.
+    *****************************************/
+    // FBP config file
+    "fbp_config": "config_fbp_nmar.jsonc",
+
+    // FPJ config file
+    "fpj_config": "config_fpj_nmar.jsonc",
+
+    // Metal ROI value range
+    "MetalRange": [2000, 99999999],
+    // Folder for final corrected images
+    "OutputDir": "img_NMAR",
+
+    // Water value range for normalization in NMAR [unit: depending on you image unit HU or mu]
+    "AverageRange": [-2000, -200, 100, 150],
+
+    // (optional) Smooth the interpolated region with Gaussian kernel
+    "GaussianSmoothSigma": 1,
+
+    // (optional) Circular crop FOV. If your sinogram have truncation, the reconstructed images will have blooming. This will impact forward projection. Crop it to make improve forward projection.
+    // The parameter could an integer [unit: pixel] or a decimal [ratio to half of side length]
+    // "CircularCropFOVRadius": 240, 
+
+    // Keep temporary files
+    "KeepTemporaryFile": true
+
+}

@@ -15,7 +15,7 @@
     "BoneRange": [0.0265, 3],
     // correction component.
     // 'b' means 'bone', 'w' means 'water' (or soft tissue)
-    "CorrectionParameters": "0.05 * b*b + 0.04 * w*b",
+    "CorrectionParameters": "0.003 * b*b + 0.001 * w*b",
 
 
     /************************************************
@@ -34,5 +34,7 @@
     // fbp config file name
     "FbpConfigFile": "config_fbp.jsonc",
     // fpj config file name
-    "FpjConfigFile": "config_fpj.jsonc"
+    "FpjConfigFile": "config_fpj.jsonc",
+
+    "KeepTemporaryFiles": true,
 }
