@@ -12,7 +12,7 @@ function MgConvertHeTeToLe(filenameTe, filenameHe, filenameLe, rows, cols, pages
 % gap: gap between images (bytes)
 % type: data type, i.e. 'float32', 'uint16'
 
-fprintf("processing ...   ");
+fprintf("Processing ...   ");
 
 % read EVI header info if necessary
 if nargin <= 3
