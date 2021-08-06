@@ -14,7 +14,7 @@ fbp.InputDir = sprintf('./sgm/%s/%s', js.ObjectName, obj_folder);
 fbp.OutputDir = sprintf('./img/%s/%s/', js.ObjectName, obj_folder);
 MgMkdir(fbp.OutputDir, false);
 
-fbp.InputFiles = sprintf('sgm_%s_.*raw', js.ObjectIndex);
+fbp.InputFiles = sprintf('sgm_%s_.*%d-%d-%d.raw', js.ObjectIndex, js.EviWidth / js.RebinSize, js.Views, js.SliceCount);
 fbp.OutputFilePrefix = '';
 fbp.OutputFileReplace = {'sgm_', 'img_', sprintf('%d-%d', js.EviWidth / js.RebinSize, js.Views), sprintf('%d-%d', js.ImageDimension, js.ImageDimension)};
 fbp.SaveFilteredSinogram = false;
