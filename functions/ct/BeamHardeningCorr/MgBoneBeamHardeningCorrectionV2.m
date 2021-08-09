@@ -1,4 +1,4 @@
-function MgBoneBeamHardeningCorrectionV3(config_filename)
+function MgBoneBeamHardeningCorrectionV2(config_filename)
 % MgBoneBeamHardeningCorrection(config_filename)
 % Perform beam beam hardening correction for ct images. All configurations
 % are in config file.

@@ -1,4 +1,4 @@
-function MgBenchtopReconstructImages(config_filename, obj_folder, delete_tmp_config_file)
+function folder_img = MgBenchtopReconstructImages(config_filename, obj_folder, delete_tmp_config_file)
 % Generate config file for mgfbp and perform the reconstruction.
 
 if nargin < 3
@@ -50,6 +50,7 @@ if delete_tmp_config_file
     delete('./config_temp/config_fbp_tmp.jsonc');
 end
 
+folder_img = fbp.OutputDir;
 
 end
 
