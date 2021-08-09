@@ -14,7 +14,7 @@ MgMkdir(folder_sgm_PMMA, false);
 MgMkdir(folder_sgm_Al, false);
 
 %% load panel correction parameters
-load(sprintf('%s/cali_DE.mat', js.PanelCorrParamFolder));
+load(sprintf('%s/cali_PMMA.mat', MgBenchtopGetPanelCorrProtocolFolder(js.PanelCorrProtocol)));
 cali_PMMA = cali_PMMA{2, 2};
 cali_Al = cali_Al{2, 2};
 

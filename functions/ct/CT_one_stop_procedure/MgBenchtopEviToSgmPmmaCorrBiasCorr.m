@@ -21,7 +21,7 @@ MgMkdir(folder_sgm_pmma_corr, false);
 MgMkdir(folder_sgm_no_corr, false);
 
 %% load panel correction parameters
-filename = sprintf('%s/cali_PMMA.mat', js.PanelCorrParamFolder);
+filename = sprintf('%s/cali_PMMA.mat', MgBenchtopGetPanelCorrProtocolFolder(js.PanelCorrProtocol));
 cali_PMMA = load(filename, sprintf('cali_PMMA_%s', js.EnergyBin)).(sprintf('cali_PMMA_%s', js.EnergyBin));
 
 % read EVI air data
