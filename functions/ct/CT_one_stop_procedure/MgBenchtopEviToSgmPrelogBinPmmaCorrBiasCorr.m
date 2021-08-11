@@ -51,8 +51,8 @@ for n = 1:numel(files_short)
  
     % take log and remove extra views
     sgm_no_corr = log(prj_air ./ prj);
-    sgm_no_corr(isnan(sgm_no_corr)) = 0;
-    sgm_no_corr(isinf(sgm_no_corr)) = 0;
+%     sgm_no_corr(isnan(sgm_no_corr)) = 0;
+%     sgm_no_corr(isinf(sgm_no_corr)) = 0;
 
     % apply bias correction
     for od = 1:order_corr
