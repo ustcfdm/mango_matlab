@@ -1,11 +1,15 @@
-function [obj_folder_pmma, obj_folder_Al] = MgBenchtopDualEnergyDecomp(config_filename)
+function [obj_folder_pmma, obj_folder_Al] = MgBenchtopDualEnergyDecompBiasCorr(config_filename, order_corr)
 % Perform projection domain material decomposition and generate sinogram for benchtop PCD-CT system.
+% Apply bias correction for LE, HE data.
 
 js = MgReadJsoncFile(config_filename);
+%% correction coefficients from order 1 to 4
+corr_coeff = [-1/2, 1/12, 0, -120];
+order_str = {'1st', '2nd', '3rd', '4th'};
 
 %% folders to save decomp sinogram and img (w/ and w/o rebin)
-obj_folder_pmma = 'DE/PMMA_decomp';
-obj_folder_Al = 'DE/Al_decomp';
+obj_folder_pmma = sprintf('DE/PMMA_decomp_bias_corr_%s_order', order_str{order_corr});
+obj_folder_Al = sprintf('DE/Al_decomp_bias_corr_%s_order', order_str{order_corr});
 
 folder_sgm_PMMA = sprintf('./sgm/%s/%s', js.ObjectName, obj_folder_pmma);
 folder_sgm_Al = sprintf('./sgm/%s/%s', js.ObjectName, obj_folder_Al);
@@ -51,23 +55,28 @@ for n = 1:numel(files_HE_short)
     
     % take log
     prj_log_LE = log(prj_air_LE ./ prj_LE);
-    prj_log_LE(isnan(prj_log_LE)) = 0;
-    prj_log_LE(isinf(prj_log_LE)) = 0;
     prj_log_HE = log(prj_air_HE ./ prj_HE);
-    prj_log_HE(isnan(prj_log_HE)) = 0;
-    prj_log_HE(isinf(prj_log_HE)) = 0;
+    
+    % apply bias correction
+    for od = 1:order_corr
+        prj_log_LE = prj_log_LE + corr_coeff(od) ./ (prj_LE.^od);
+        prj_log_HE = prj_log_HE + corr_coeff(od) ./ (prj_HE.^od);
+    end
     
     % save memory
     clear prj_LE prj_HE
+    
+    prj_log_LE(isnan(prj_log_LE)) = 0;
+    prj_log_LE(isinf(prj_log_LE)) = 0;
+    
+    prj_log_HE(isnan(prj_log_HE)) = 0;
+    prj_log_HE(isinf(prj_log_HE)) = 0;
 
     %-------------------------------------------
     % Step 2: do the DE decomposition
     %-------------------------------------------
     prj_PMMA = MgPolyvalTwoVariable(cali_PMMA, prj_log_LE, prj_log_HE);
     prj_Al = MgPolyvalTwoVariable(cali_Al, prj_log_LE, prj_log_HE);
-    
-    % save memory
-    clear prj_log_LE prj_log_HE
     
     prj_PMMA(isnan(prj_PMMA)) = 0;
     prj_PMMA(isinf(prj_PMMA)) = 0;

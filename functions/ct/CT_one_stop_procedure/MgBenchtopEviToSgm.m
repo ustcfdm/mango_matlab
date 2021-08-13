@@ -1,7 +1,13 @@
-function obj_folder_no_corr = MgBenchtopEviToSgm(config_filename)
+function obj_folder_no_corr = MgBenchtopEviToSgm(config_filename, usePanelGapCorr)
 % Generate sinogram from EVI data. No panel correction.
 
 js = MgReadJsoncFile(config_filename);
+
+if nargin < 2
+    usePanelGapCorr = true;
+end
+    
+
 
 %% folder names for sinogram (w/o PMMA correction)
 obj_folder_no_corr = sprintf('%s/no_corr', js.EnergyBin);
@@ -42,7 +48,9 @@ for n = 1:numel(files_short)
     sgm_no_corr = MgResliceProjectionToSinogram(prj_log, js.SliceStartIdx, js.SliceThickness, js.SliceCount);
     
     % interpolate panel gap
-    sgm_no_corr = MgInterpSinogram(sgm_no_corr, 1,2, 4);
+    if usePanelGapCorr
+        sgm_no_corr = MgInterpSinogram(sgm_no_corr, 1,2, 4);
+    end
     
     %===========================================================
     % Step 4: rebin sinogram
