@@ -1,14 +1,26 @@
-function [imgA, imgB] = MgMaterialForwardComposition(mu_matrix, img1, img2)
-% Perform forward image basis converstion. For example:
-%  img1, img2 are PMMA, Al basis, and imgA, imgB are water, Ca basis.
+function varargout = MgMaterialForwardComposition(mu_matrix, varargin)
+% Perform forward image basis converstion. Example usage:
+%  [img_water, img_Ca] = MgMaterialForwardComposition(mu_matrix, img_PMMA, img_Al)
+% Take 2 basis composition as example, the equation is:
+%  [imgA; imgB] = mu_matrix * [img1; img2]
 % mu_matrix: 2x2 matrix
 
+% number of basis
+N = nargin - 1;
 
-[rows, cols, S] = size(img1);
+% image matrix (right hand side)
+img_mat_right = zeros(N, numel(varargin{2}));
+for n = 1:N
+    img_mat_right(n, :) = varargin{n}(:);
+end
 
-imgAB = mu_matrix * cat(1, reshape(img1, 1, []), reshape(img2, 1, []));
-imgA = reshape(imgAB(1,:), rows, cols, S);
-imgB = reshape(imgAB(2,:), rows, cols, S);
+% do the forward composition
+img_mat_left = mu_matrix * img_mat_right;
 
+% reshpae image matrix (left hand side)
+varargout = cell(1, N);
+for n = 1:N
+    varargout{n} = reshape(img_mat_left(n,:), size(varargin{2}));
+end
 
 end

@@ -1,18 +1,20 @@
-function [outputArg1,outputArg2] = MgBenchtopConvertMaterialBasisFromPmmaAl(config_filename, obj_PMMA_folder, obj_Al_folder, outputBasis)
+function [folder_out_1, folder_out_2] = MgBenchtopConvertMaterialBasisFromPmmaAl(config_filename, obj_PMMA_folder, obj_Al_folder, outputBasis)
 % Convert PMMA + Al basis to another basis images.
 % outputBasis: (string) available options are
 %              water_iodine, water_calcium
 js = MgReadJsoncFile(config_filename);
 
 if outputBasis == "water_iodine"
-    Mu = [1.1521, 2.1553; -0.0003, 0.0088];
+    Mu = MgGetMaterialDecompMatrix({'PMMA', 'Al'}, {'water', 'I'}, 34:120);
+    Mu = Mu';
     obj_out_1 = strrep(obj_PMMA_folder, 'PMMA_decomp', 'decomp_water(iodine)');
     obj_out_2 = strrep(obj_Al_folder, 'Al_decomp', 'decomp_iodine(water)');
     % material density
     den1 = MgGetMaterialDensity('water');
     den2 = MgGetMaterialDensity('I')*1000;
 elseif outputBasis == "water_calcium"
-    Mu = [1.1630, 1.8295; -0.0122, 0.3684];
+    Mu = MgGetMaterialDecompMatrix({'PMMA', 'Al'}, {'water', 'Ca'}, 34:120);
+    Mu = Mu';
     obj_out_1 = strrep(obj_PMMA_folder, 'PMMA_decomp', 'decomp_water(calcium)');
     obj_out_2 = strrep(obj_Al_folder, 'Al_decomp', 'decomp_calcium(water)');
     % material density
@@ -41,7 +43,7 @@ for n = 1:numel(files_PMMA_short)
     
     % save to file
     filename = sprintf('%s/%s', folder_out_1, files_PMMA_short{n});
-    MgSaveRawFile(filename, img1);
+    MgSaveRawFile(filename, img1*den1);
     filename = sprintf('%s/%s', folder_out_2, files_PMMA_short{n});
     MgSaveRawFile(filename, img2*den2);
 end
