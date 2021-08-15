@@ -1,4 +1,6 @@
-function MgBenchtopBoneCorrection(config_filename, obj_folder)
+function MgBenchtopBoneCorrection(config_filename, obj_folder, corr_recipe)
+% Apply emperical bone correciton for benchtop.
+% corr_recipe: the recipe name in "BoneCorr" item.
 
 js = MgReadJsoncFile(config_filename);
 
@@ -13,7 +15,7 @@ terms = [""];
 % idx for coefficients and terms
 idx = 1;
 % parameters string
-s = js.BoneCorr.CorrFormula;
+s = js.BoneCorr.(corr_recipe).CorrFormula;
 tmp = "";
 coeff(idx) = 1;
 for n = 1:strlength(s)
@@ -55,14 +57,14 @@ for n = 1:numel(files_img_short)
     
     % bone part
     img_bone = zeros(size(img));
-    idx_bone = img >= js.BoneCorr.BoneRange(1) & img < js.BoneCorr.BoneRange(2);
+    idx_bone = img >= js.BoneCorr.(corr_recipe).BoneRange(1) & img < js.BoneCorr.(corr_recipe).BoneRange(2);
     img_bone(idx_bone) = img(idx_bone);
     filename = sprintf('%s/%s', folder_img_b, files_img_short{n});
     MgSaveRawFile(filename, img_bone);
     
     % water part
     img_water = zeros(size(img));
-    idx_water = img >= js.BoneCorr.WaterRange(1) & img < js.BoneCorr.WaterRange(2);
+    idx_water = img >= js.BoneCorr.(corr_recipe).WaterRange(1) & img < js.BoneCorr.(corr_recipe).WaterRange(2);
     img_water(idx_water) = img(idx_water);
     filename = sprintf('%s/%s', folder_img_w, files_img_short{n});
     MgSaveRawFile(filename, img_water);
