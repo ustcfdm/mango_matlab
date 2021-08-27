@@ -9,7 +9,7 @@ function [obj_folder_pmma_corr, obj_folder_no_corr] = MgBenchtopEviToSgmPmmaCorr
 js = MgReadJsoncFile(config_filename);
 
 %% correction coefficients from order 1 to 4
-corr_coeff = [-1/2, 1/12, 0, -120];
+corr_coeff = [-1/2, 1/12, 0, -1/120];
 order_str = {'1st', '2nd', '3rd', '4th'};
 
 %% folder names for sinogram (w and w/o PMMA correction)
