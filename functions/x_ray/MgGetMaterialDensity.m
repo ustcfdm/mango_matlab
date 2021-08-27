@@ -21,6 +21,8 @@ switch material
         density = 2.12;
     case "CaCl2"
         density = 2.15;
+    case "CdTe"
+        density = 5.85;
     case "CsI"
         density = 4.51;
     case "GOS"
@@ -85,6 +87,8 @@ switch material
         density = 1.82;
     case "S"
         density = 2.07;
+    case "Si"
+        density = 2.33;
     case "Sn"
         density = 7.3;
     case "Tm"
