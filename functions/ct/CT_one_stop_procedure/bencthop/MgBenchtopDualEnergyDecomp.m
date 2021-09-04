@@ -1,7 +1,11 @@
-function [obj_folder_pmma, obj_folder_Al] = MgBenchtopDualEnergyDecomp(config_filename)
+function [obj_folder_pmma, obj_folder_Al] = MgBenchtopDualEnergyDecomp(config_filename, badPixelCorr)
 % Perform projection domain material decomposition and generate sinogram for benchtop PCD-CT system.
 
 js = MgReadJsoncFile(config_filename);
+
+if nargin < 2
+    badPixelCorr = false;
+end
 
 %% folders to save decomp sinogram and img (w/ and w/o rebin)
 obj_folder_pmma = 'DE/PMMA_decomp';
@@ -65,6 +69,12 @@ for n = 1:numel(files_HE_short)
     %-------------------------------------------
     prj_PMMA = MgPolyvalTwoVariable(cali_PMMA, prj_log_LE, prj_log_HE);
     prj_Al = MgPolyvalTwoVariable(cali_Al, prj_log_LE, prj_log_HE);
+    
+    % apply bad pixel correction
+    if badPixelCorr
+        prj_PMMA = MgBenchtopBadPixelCorr(prj_PMMA);
+        prj_Al = MgBenchtopBadPixelCorr(prj_Al);
+    end
     
     % save memory
     clear prj_log_LE prj_log_HE
