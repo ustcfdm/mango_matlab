@@ -1,4 +1,4 @@
-function [obj_folder_pmma_corr, obj_folder_no_corr] = MgBenchtopEviToSgmPmmaCorrBiasCorr_0CountZbin(config_filename, order_corr, scale)
+function [obj_folder_pmma_corr, obj_folder_no_corr] = MgBenchtopEviToSgmPmmaCorrBiasCorr_0CountZbin(config_filename, order_corr, scale, badPixelCorr)
 % Generate sinogram from EVI data. Apply panel correction using pure PMMA. For 0-count pixels, replace them with z
 % binning average value multiplied with a scale.
 % Apply signal bias correcion:
@@ -7,6 +7,10 @@ function [obj_folder_pmma_corr, obj_folder_no_corr] = MgBenchtopEviToSgmPmmaCorr
 % scale: multiply a scale for 0-count pixels after replacing with z binning (average)
 
 js = MgReadJsoncFile(config_filename);
+
+if nargin < 4
+    badPixelCorr = false;
+end
 
 %% correction coefficients from order 1 to 4
 corr_coeff = [-1/2, 1/12, 0, -1/120];
@@ -79,6 +83,12 @@ for n = 1:numel(files_short)
     prj_PMMA = MgPolyval(cali_PMMA, prj_log);
     prj_PMMA(isnan(prj_PMMA)) = 0;
     prj_PMMA(isinf(prj_PMMA)) = 0;
+    
+    % apply bad pixel correction
+    if badPixelCorr
+        prj_PMMA = MgBenchtopBadPixelCorr(prj_PMMA);
+        prj_log = MgBenchtopBadPixelCorr(prj_log);
+    end
     
     %===========================================================
     % Step 3: reslice to sinogram shape
