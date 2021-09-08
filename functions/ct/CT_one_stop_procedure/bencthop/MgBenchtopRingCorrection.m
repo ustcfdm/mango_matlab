@@ -1,4 +1,4 @@
-function folder_img_rc = MgBenchtopRingCorrection(config_filename, obj_folder, rc_set)
+function folder_img_rc = MgBenchtopRingCorrection(config_filename, obj_folder, recipe)
 % Perform ring correction.
 % rc_set: ring correction parameter set.
 
@@ -13,7 +13,7 @@ files = sprintf('img_%s_.*%d-%d-%d.raw', js.ObjectIndex, js.ImageDimension, js.I
 [files_short, files_long] = MgDirRegExpV2(folder_img_in, files);
 
 % ring correction parameters
-p = js.RingCorr.(rc_set);
+p = js.RingCorr.(recipe);
 
 for n = 1:numel(files_short)
     img = MgReadRawFile(files_long{n}, js.ImageDimension, js.ImageDimension, js.SliceCount);
