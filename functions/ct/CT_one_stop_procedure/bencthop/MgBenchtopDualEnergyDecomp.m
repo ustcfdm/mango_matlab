@@ -84,6 +84,12 @@ for n = 1:numel(files_HE_short)
     prj_Al(isnan(prj_Al)) = 0;
     prj_Al(isinf(prj_Al)) = 0;
     
+    % apply bad pixel correction
+    if badPixelCorr
+        prj_PMMA = MgBenchtopBadPixelCorr(prj_PMMA);
+        prj_Al = MgBenchtopBadPixelCorr(prj_Al);
+    end
+    
     %-------------------------------------------
     % Step 3: reslice to sinogram shape
     %-------------------------------------------
