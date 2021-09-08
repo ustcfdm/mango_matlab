@@ -1,17 +1,9 @@
-function folder_img_HU = MgBenchtopConvertToHU(config_filename, obj_folder, useRelativeMu)
+function folder_img_HU = MgBenchtopConvertToHU(config_filename, obj_folder, recipe)
 % convert images to HU unit.
-% useRelativeMu: true (default) if the unit is mu/mu_PMMA; false if the unit is mu (mm-1)
 
 js = MgReadJsoncFile(config_filename);
 
-if nargin < 3
-    mu_water = js.MuWater;
-elseif useRelativeMu
-    mu_water = js.MuWater;
-else
-    mu_water = js.MuWater * js.MuPmma;
-end
-
+mu_water = js.MuWater.(recipe);
 
 folder_img_mu = sprintf('./img/%s/%s', js.ObjectName, obj_folder);
 folder_img_HU = sprintf('./img/%s/%s_HU', js.ObjectName, obj_folder);

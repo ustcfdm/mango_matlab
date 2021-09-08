@@ -22,7 +22,7 @@ prj_3d = imresize3(prj_3d, scale);
 
 s = size(prj_3d, 3);
 
-x = zeros(s, 3);
+x = zeros(s, 1);
 y = (1:s) * v_y;
 
 rows = (1: (50*scale)) + round(7*scale);
@@ -30,6 +30,8 @@ rows = (1: (50*scale)) + round(7*scale);
 prj_align = MgAlignStackWithShift(prj_3d(rows,:,:), x, y);
 
 prj_align = mean(prj_align, 3, 'omitnan');
+
+% prj_align = MgStackZProjectWithShift(prj_3d(rows,:,:), x, y, @mean);
 
 end
 
