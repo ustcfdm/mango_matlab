@@ -1,237 +1,320 @@
 ﻿List of functions content:
-├─colormap
-│      MgColorMapCyan.m
-│      MgColorMapGreen.m
-│      MgColorMapLinear.m
-│      
-├─ct
-│  │  MgConvertHUtoMu.m
-│  │  MgConvertMuToHU.m
-│  │  MgDiffSinogram.m
-│  │  MgGenerateSgmBinFromSgmBasis.m
-│  │  MgGenerateSgmBinFromSgmBasisWithPanelInconsistency.m
-│  │  MgGenerateSinogram.m
-│  │  MgGetSignKernel.m
-│  │  MgMaterialDecompositionImageDomation.m
-│  │  MgRebinSinogram.m
-│  │  MgResliceProjectionToSinogram.m
-│  │  MgRingCorrection.m
-│  │  MgRingCorrectionSplit.m
-│  │  MgTruncationSgmExtraploation.m
-│  │  
-│  ├─BeamHardeningCorr
-│  │      config_sample_bone_correction.jsonc
-│  │      config_sample_bone_correctionV2.jsonc
-│  │      MgBoneBeamHardeningCorrection.m
-│  │      MgBoneBeamHardeningCorrectionV2.m
-│  │      MgGetBoneCorrectionConfigSampleFile.m
-│  │      
-│  ├─NMAR
-│  │      config_NMAR.jsonc
-│  │      MgNMAR.m
-│  │      
-│  └─Reconstruction
-│          MgFbpFanBeam.m
-│          MgGetFbpKernelFanBeam.m
-│          
-├─data_process
-│      MgConstructPolyMatrix.m
-│      MgPolyfit1D.m
-│      MgPolyval.m
-│      MgPolyval1D.m
-│      MgPolyvalTwoVariable.m
-│      
-├─DICOM
-│      dicom_sample.dicm
-│      MgDicomRead.m
-│      MgDicomReadVolume.m
-│      MgWriteDicomFiles.m
-│      
-├─file
-│  │  MgConvertEviDataTypeToMatlabDataType.m
-│  │  MgExtractNumberFromStringCell.m
-│  │  MgGetTypeBytes.m
-│  │  MgMkdir.m
-│  │  MgReadEviData.m
-│  │  MgReadEviDataCrop.m
-│  │  MgReadEviInfo.m
-│  │  MgReadRawFile.m
-│  │  MgReadRawFileSubRegion.m
-│  │  MgReadTiff.m
-│  │  MgSaveRawFile.m
-│  │  MgSortStringByNumber.m
-│  │  MgWriteImage.m
-│  │  MgWriteTiff.m
-│  │  
-│  └─MgDirRegExp
-│          functionSignatures.json
-│          MgDirRegExp.cpp
-│          MgDirRegExp.mexw64
-│          MgDirRegExpV2.cpp
-│          MgDirRegExpV2.mexw64
-│          
-├─image_measure
-│      MgCalculateMtf1D.m
-│      MgGetOtfCurve.m
-│      MgMeasureNps.m
-│      MgMeasureNpsIec.m
-│      MgRadialAverage.m
-│      
-├─image_process
-│      MgAlignStackWithShift.m
-│      MgCropCircleFOV.m
-│      MgDiskMatrix.m
-│      MgFindEdgeSlope.m
-│      MgGetEsf.m
-│      MgGetEsfUnresample.m
-│      MgGetLsf.m
-│      MgGetLsfUnresample.m
-│      MgSmoothEsfCurve.m
-│      MgSmoothLsfCurve.m
-│      MgSoftThresholdSegment.m
-│      
-├─jsonc
-│      functionSignatures.json
-│      MgReadJsoncFile.m
-│      MgRemoveJsoncComments.mexw64
-│      MgSaveToJsonFile.m
-│      README.md
-│      
-├─PCD
-│  │  MgConvertHeTeToLe.m
-│  │  MgInterp1D.m
-│  │  MgInterpSinogram.m
-│  │  MgReadEviThresholds.m
-│  │  
-│  ├─energy_response
-│  │      MgEnergyResponseData.txt
-│  │      MgEnergyResponseDataAcsOff.txt
-│  │      MgEnergyResponseDataAcsOn.txt
-│  │      MgFilterSinogramWithEnergyResponse.m
-│  │      MgFilterWithPCDEnergyResponse.m
-│  │      MgGetBinResponseSpectrum.m
-│  │      MgGetEnergyResponseMatrix.m
-│  │      
-│  └─panel_correction
-│          PanelAlignment.m
-│          PanelInterp.m
-│          PanelSymmetryCorrection.m
-│          
-├─phase_contrast
-│      MgDpcAttenuation.m
-│      MgDpcDarkField.m
-│      MgDpcMultiContrast.m
-│      MgDpcMultiContrastScanMode.m
-│      MgDpcPhaseContrast.m
-│      MgThorBadPixelCorr.m
-│      MgThorGainCorrection.m
-│      thor_bad_pixels.txt
-│      
-├─plot
-│      MgBreakYAxis.m
-│      MgImshowOverlay.m
-│      MgRemoveFigurePadding.m
-│      MgSaveFigure.m
-│      MgSetFigureTheme.m
-│      
-├─progress_info
-│      MgCmdLineProgressBar.m
-│      MgPlaySound.m
-│      
-├─random_gpu
-│      functionSignatures.json
-│      MgPoissrndGpu.mexw64
-│      README.md
-│      
-├─string_process
-│      MgParseStringToNumbers.m
-│      
-└─x_ray
-    │  MgAttenuateSpectrum.m
-    │  MgCalculateExposure.m
-    │  MgCalculateHVL.m
-    │  MgGetAtomicA.m
-    │  MgGetAtomicZ.m
-    │  MgGetEffectiveZ.m
-    │  MgGetMaterialDensity.m
-    │  MgGetMuL.m
-    │  
-    ├─Gammex
-    │      calcium_inserts.txt
-    │      iodine_inserts.txt
-    │      MgGetLinearAttenuationGammex.m
-    │      
-    ├─get_linear_attenuation
-    │      adipose
-    │      air
-    │      Al
-    │      Au
-    │      blood
-    │      bone
-    │      brain
-    │      C
-    │      Ca
-    │      CaC2O4
-    │      CaCl2
-    │      Ce
-    │      Cl
-    │      CsI
-    │      Cu
-    │      Fe
-    │      Gd
-    │      GOS
-    │      H
-    │      I
-    │      K
-    │      kidney
-    │      liver
-    │      Mg
-    │      MgGetLinearAttenuation.m
-    │      MgGetLinearAttenuationCompound.m
-    │      MgGetLinearAttenuationSolution.m
-    │      muscle
-    │      N
-    │      Na
-    │      NaI
-    │      O
-    │      P
-    │      Pb
-    │      pmma
-    │      polypropylene
-    │      polystyrene
-    │      S
-    │      Sn
-    │      spleen
-    │      teflon
-    │      tissue
-    │      Tm
-    │      UricAcid
-    │      UricAcidSodiumSalt
-    │      W
-    │      water
-    │      Zn
-    │      
-    ├─get_mass_attenuation
-    │      adipose.txt
-    │      air.txt
-    │      Al.txt
-    │      bone.txt
-    │      Ca.txt
-    │      Cl.txt
-    │      Cu.txt
-    │      Fe.txt
-    │      I.txt
-    │      lung.txt
-    │      MgGetEnergyMassAttenuation.m
-    │      MgGetMassAttenuation.m
-    │      MgGetMassAttenuationSolution.m
-    │      P.txt
-    │      pmma.txt
-    │      polyethylene.txt
-    │      teflon.txt
-    │      water.txt
-    │      
-    └─get_spectrum
++---colormap
+|       MgColorMapCyan.m
+|       MgColorMapGreen.m
+|       MgColorMapLinear.m
+|       
++---ct
+|   |   MgConvertHUtoMu.m
+|   |   MgConvertMuToHU.m
+|   |   MgDiffSinogram.m
+|   |   MgGenerateSgmBinFromSgmBasis.m
+|   |   MgGenerateSgmBinFromSgmBasisWithPanelInconsistency.m
+|   |   MgGenerateSinogram.m
+|   |   MgGetSignKernel.m
+|   |   MgMaterialDecomposition.m
+|   |   MgMaterialDecompositionImageDomation.m
+|   |   MgMaterialForwardComposition.m
+|   |   MgRebinSinogram.m
+|   |   MgResliceProjectionToSinogram.m
+|   |   MgRingCorrection.m
+|   |   MgRingCorrectionSplit.m
+|   |   MgTruncationSgmExtraploation.m
+|   |   
+|   +---BeamHardeningCorr
+|   |       config_sample_bone_correction.jsonc
+|   |       config_sample_bone_correctionV2.jsonc
+|   |       MgBoneBeamHardeningCorrection.m
+|   |       MgBoneBeamHardeningCorrectionV2.m
+|   |       MgGetBoneCorrectionConfigSampleFile.m
+|   |       
+|   +---CT_one_stop_procedure
+|   |   +---bencthop
+|   |   |   |   MgBenchtopBadPixelCorr.m
+|   |   |   |   MgBenchtopBeamWidth.m
+|   |   |   |   MgBenchtopBoneCorrection.m
+|   |   |   |   MgBenchtopConvertMaterialBasisFromPmmaAl.m
+|   |   |   |   MgBenchtopConvertToHU.m
+|   |   |   |   MgBenchtopDualEnergyDecomp.m
+|   |   |   |   MgBenchtopDualEnergyDecompBiasCorr.m
+|   |   |   |   MgBenchtopDualEnergyDecompBiasCorr_0CountZbin.m
+|   |   |   |   MgBenchtopEviToSgm.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorr.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorrBiasCorr.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorrBiasCorr_0CountZbin.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorrBiasCorr_local_mean.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorrScatterCorr.m
+|   |   |   |   MgBenchtopEviToSgmPmmaCorr_local_mean.m
+|   |   |   |   MgBenchtopEviToSgmPrelogBin.m
+|   |   |   |   MgBenchtopEviToSgmPrelogBinPmmaCorr.m
+|   |   |   |   MgBenchtopEviToSgmPrelogBinPmmaCorrBiasCorr.m
+|   |   |   |   MgBenchtopForwardProjectImages.m
+|   |   |   |   MgBenchtopGenerateVmi.m
+|   |   |   |   MgBenchtopGetEviFileNames.m
+|   |   |   |   MgBenchtopImageDomainDecomposition.m
+|   |   |   |   MgBenchtopReconstructImages.m
+|   |   |   |   MgBenchtopRingCorrection.m
+|   |   |   |   MgResliceCaliPcell.m
+|   |   |   |   
+|   |   |   \---benchtop_corr_coefficients
+|   |   |       |   MgBenchtopGetPanelCorrProtocolFolder.m
+|   |   |       |   
+|   |   |       +---100kV_0.2Cu_th_20_80keV_old_collimator
+|   |   |       |       cali_bone_seg.mat
+|   |   |       |       cali_DE.mat
+|   |   |       |       cali_PMMA.mat
+|   |   |       |       
+|   |   |       +---120kV_0.25Cu_th_20_85keV_old_collimator
+|   |   |       |       cali_bone_seg.mat
+|   |   |       |       cali_DE.mat
+|   |   |       |       cali_PMMA.mat
+|   |   |       |       
+|   |   |       \---80kV_0.2Cu_th_20_70keV_old_collimator
+|   |   |               cali_bone_seg.mat
+|   |   |               cali_DE.mat
+|   |   |               cali_PMMA.mat
+|   |   |               
+|   |   \---C_arm
+|   |       |   MgCarmConvertToHU.m
+|   |       |   MgCarmEviToSgmPmmaCorr.m
+|   |       |   MgCarmEviToSgmPmmaCorrScatterCorr.m
+|   |       |   MgCarmReconstructImages.m
+|   |       |   MgCarmRingCorrection.m
+|   |       |   
+|   |       \---c_arm_corr_coefficients
+|   |           |   MgCarmGetPanelCorrProtocolFolder.m
+|   |           |   
+|   |           +---7s-dyna-1mmCu-th_20_70keV
+|   |           |       cali_bone_seg.mat
+|   |           |       cali_DE.mat
+|   |           |       cali_PMMA.mat
+|   |           |       
+|   |           \---7s-dyna-1mmCu-th_20_70keV_zbin
+|   |                   cali_bone_seg.mat
+|   |                   cali_DE.mat
+|   |                   cali_PMMA.mat
+|   |                   
+|   +---NMAR
+|   |       config_NMAR.jsonc
+|   |       config_NMAR_v2.jsonc
+|   |       MgInterpSinogramMetal1D.m
+|   |       MgMergeContinuousIndex.m
+|   |       MgNMAR.m
+|   |       MgNMAR_v2.m
+|   |       
+|   \---Reconstruction
+|           MgFbpFanBeam.m
+|           MgGetFbpKernelFanBeam.m
+|           
++---data_process
+|       MgConstructPolyMatrix.m
+|       MgLocalMeanReplace.m
+|       MgPolyfit1D.m
+|       MgPolyval.m
+|       MgPolyval1D.m
+|       MgPolyvalTwoVariable.m
+|       MgRebinArray.m
+|       MgUnbinArray.m
+|       
++---DICOM
+|       dicom_sample.dicm
+|       MgDicomRead.m
+|       MgDicomReadVolume.m
+|       MgWriteDicomFiles.m
+|       
++---file
+|   |   MgExtractNumberFromStringCell.m
+|   |   MgGetTypeBytes.m
+|   |   MgMkdir.m
+|   |   MgReadRawFile.m
+|   |   MgReadRawFileSubRegion.m
+|   |   MgReadTiff.m
+|   |   MgSaveRawFile.m
+|   |   MgSortStringByNumber.m
+|   |   MgWriteImage.m
+|   |   MgWriteTiff.m
+|   |   
+|   \---MgDirRegExp
+|           functionSignatures.json
+|           MgDirRegExp.cpp
+|           MgDirRegExp.mexw64
+|           MgDirRegExpV2.cpp
+|           MgDirRegExpV2.mexw64
+|           
++---image_measure
+|       MgCalculateMtf1D.m
+|       MgGetOtfCurve.m
+|       MgMeasureNps.m
+|       MgMeasureNpsIec.m
+|       MgRadialAverage.m
+|       
++---image_process
+|       MgAlignStackWithShift.m
+|       MgCropCircleFOV.m
+|       MgDiskMatrix.m
+|       MgFindEdgeSlope.m
+|       MgGetEsf.m
+|       MgGetEsfUnresample.m
+|       MgGetLsf.m
+|       MgGetLsfUnresample.m
+|       MgSmoothEsfCurve.m
+|       MgSmoothLsfCurve.m
+|       MgSoftThresholdSegment.m
+|       
++---jsonc
+|       functionSignatures.json
+|       MgReadJsoncFile.m
+|       MgRemoveJsoncComments.mexw64
+|       MgSaveToJsonFile.m
+|       README.md
+|       
++---PCD
+|   |   MgAverageMultiEviFiles.m
+|   |   MgConvertEviDataTypeToMatlabDataType.m
+|   |   MgConvertHeTeToLe.m
+|   |   MgInterp1D.m
+|   |   MgInterpSinogram.m
+|   |   MgReadEviData.m
+|   |   MgReadEviDataCrop.m
+|   |   MgReadEviDataCropSubFrame.m
+|   |   MgReadEviInfo.m
+|   |   MgReadEviThresholds.m
+|   |   
+|   +---energy_response
+|   |       MgEnergyResponseData.txt
+|   |       MgEnergyResponseDataAcsOff.txt
+|   |       MgEnergyResponseDataAcsOn.txt
+|   |       MgFilterSinogramWithEnergyResponse.m
+|   |       MgFilterWithPCDEnergyResponse.m
+|   |       MgGetBinResponseSpectrum.m
+|   |       MgGetEnergyResponseMatrix.m
+|   |       
+|   \---panel_correction
+|           PanelAlignment.m
+|           PanelInterp.m
+|           PanelSymmetryCorrection.m
+|           
++---phase_contrast
+|       MgDpcAttenuation.m
+|       MgDpcDarkField.m
+|       MgDpcMultiContrast.m
+|       MgDpcMultiContrastScanMode.m
+|       MgDpcPhaseContrast.m
+|       MgThorBadPixelCorr.m
+|       MgThorGainCorrection.m
+|       thor_bad_pixels.txt
+|       
++---plot
+|       MgBreakYAxis.m
+|       MgImshowOverlay.m
+|       MgRemoveFigurePadding.m
+|       MgSaveFigure.m
+|       MgSetFigureTheme.m
+|       
++---progress_info
+|       MgCmdLineProgressBar.m
+|       MgPlaySound.m
+|       
++---random_gpu
+|       functionSignatures.json
+|       MgPoissrndGpu.mexw64
+|       README.md
+|       
++---string_process
+|       MgParseStringToNumbers.m
+|       
+\---x_ray
+    |   MgAttenuateSpectrum.m
+    |   MgCalculateExposure.m
+    |   MgCalculateHVL.m
+    |   MgGetAtomicA.m
+    |   MgGetAtomicZ.m
+    |   MgGetEffectiveZ.m
+    |   MgGetElectronDensity.m
+    |   MgGetMaterialDecompMatrix.m
+    |   MgGetMaterialDensity.m
+    |   MgGetMuL.m
+    |   MgParseMolecularFormula.m
+    |   
+    +---Gammex
+    |       calcium_inserts.txt
+    |       iodine_inserts.txt
+    |       MgGetLinearAttenuationGammex.m
+    |       
+    +---get_linear_attenuation
+    |       adipose
+    |       air
+    |       Al
+    |       Au
+    |       blood
+    |       bone
+    |       brain
+    |       C
+    |       Ca
+    |       CaC2O4
+    |       CaCl2
+    |       CdTe
+    |       Ce
+    |       Cl
+    |       CsI
+    |       Cu
+    |       Fe
+    |       Gd
+    |       GOS
+    |       H
+    |       I
+    |       K
+    |       kidney
+    |       liver
+    |       Mg
+    |       MgGetLinearAttenuation.m
+    |       MgGetLinearAttenuationCompound.m
+    |       MgGetLinearAttenuationSolution.m
+    |       MgGetLinearAttenuationSolutionVolumeConservation.m
+    |       muscle
+    |       N
+    |       Na
+    |       NaI
+    |       O
+    |       P
+    |       Pb
+    |       pmma
+    |       polypropylene
+    |       polystyrene
+    |       S
+    |       Si
+    |       Sn
+    |       spleen
+    |       teflon
+    |       tissue
+    |       Tm
+    |       UricAcid
+    |       UricAcidSodiumSalt
+    |       W
+    |       water
+    |       Zn
+    |       
+    +---get_mass_attenuation
+    |       adipose.txt
+    |       air.txt
+    |       Al.txt
+    |       bone.txt
+    |       Ca.txt
+    |       Cl.txt
+    |       Cu.txt
+    |       Fe.txt
+    |       I.txt
+    |       lung.txt
+    |       MgGetEnergyMassAttenuation.m
+    |       MgGetMassAttenuation.m
+    |       MgGetMassAttenuationSolution.m
+    |       P.txt
+    |       pmma.txt
+    |       polyethylene.txt
+    |       teflon.txt
+    |       water.txt
+    |       
+    \---get_spectrum
             MgGetSpectrum.m
             MgGetSpectrumNoAl.m
             spectrum_air_100.txt
