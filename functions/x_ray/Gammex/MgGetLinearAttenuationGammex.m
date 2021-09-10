@@ -9,6 +9,8 @@ if material == "I"
     t = importdata('iodine_inserts.txt');
 elseif material == "Ca"
     t = importdata('calcium_inserts.txt');
+elseif material == "water"
+    t = importdata('water_inserts.txt');
 else
     error('Unknown insert material %s!\n', material);
 end

@@ -1,0 +1,2 @@
+Concentration	Density(g/cm3)	Electron_density	H	    O	    C	    N	    Cl	    Ca	    Mg	    I
+1	            1.02	        0.99	            8.39	18.40	68.59	2.19	0.14	2.26	0.03	0
